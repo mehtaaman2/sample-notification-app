@@ -29,7 +29,8 @@ public class TaskController {
 
     @GetMapping
     public List<TaskDto> getAllTasks(@PathVariable("userId") String userId) {
-        return repository.findByUserId(userId).stream().map(task -> TransformationUtil.transform(task)).collect(Collectors.toList());
+        //TODO: to get based on user/group
+        return repository.findAll().stream().map(task -> TransformationUtil.transform(task)).collect(Collectors.toList());
     }
 
 }
